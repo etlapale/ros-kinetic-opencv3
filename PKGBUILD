@@ -4,10 +4,10 @@ pkgdesc="ROS - OpenCV 3.x."
 url='http://opencv.org'
 
 pkgname='ros-kinetic-opencv3'
-pkgver='3.2.0'
-_pkgver_patch=4
+pkgver='3.3.1'
+_pkgver_patch=0
 arch=('any')
-pkgrel=8
+pkgrel=1
 license=('BSD')
 
 ros_makedepends=()
