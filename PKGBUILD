@@ -48,14 +48,11 @@ depends=(${ros_depends[@]}
 
 # Tarball version (faster download)
 _dir="opencv3-release-release-kinetic-opencv3-${pkgver}-${_pkgver_patch}"
-source=("${pkgname}-${pkgver}-${_pkgver_patch}.tar.gz"::"https://github.com/ros-gbp/opencv3-release/archive/release/kinetic/opencv3/${pkgver}-${_pkgver_patch}.tar.gz"
-		cmake_fix.patch)
-sha256sums=('e8360d978bc0d0c878877e2748e5da219018b19a69b920649ea96a54ce05824d'
-            '1549289a92fff0464bfa343756f15b087e625bdd3e6ac74674a5a75b7a15bfaf')
+source=("${pkgname}-${pkgver}-${_pkgver_patch}.tar.gz"::"https://github.com/ros-gbp/opencv3-release/archive/release/kinetic/opencv3/${pkgver}-${_pkgver_patch}.tar.gz")
+sha256sums=('103f28d76c6451d2371a09fb693f0c466da6dfaf374a4fa92f7dac2ad5a7f4ab')
 
 prepare() {
   cd ${srcdir}
-  patch -p1 < cmake_fix.patch
 }
 
 build() {
