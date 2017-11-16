@@ -15,6 +15,7 @@ makedepends=('cmake' 'ros-build-tools'
   ${ros_makedepends[@]}
   python2-numpy
   ffmpeg
+  gcc6
   libtiff
   libjpeg-turbo
   vtk
@@ -71,6 +72,10 @@ build() {
 
   # Build project
   cmake ${srcdir}/${_dir} \
+        -DCMAKE_CXX_COMPILER=/usr/bin/g++-6 \
+        -DCMAKE_C_COMPILER=/usr/bin/gcc-6 \
+        -DCUDA_HOST_COMPILER:FILEPATH=/usr/bin/gcc-6 \
+        -DCUDA_NVCC_FLAGS='-Xcompiler -D__CORRECT_ISO_CPP11_MATH_H_PROTO --expt-relaxed-constexpr' \
         -DCMAKE_BUILD_TYPE=Release \
         -DCATKIN_BUILD_BINARY_PACKAGE=ON \
         -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic \
